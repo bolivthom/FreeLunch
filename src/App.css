@@ -1,49 +1,42 @@
-/* Extra small devices (phones, 600px and down) */
+/* Extra small devices (phones, 600px and down)*/
 @media only screen and (max-width: 600px) {
   .header-content {
-      margin-top: 24px;
   }
+
   #header-title {
       display: none;
   }
 } 
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Small devices (portrait tablets and large phones, 600px and up)*/
 @media only screen and (min-width: 600px) {
-  .header-content  {
-      margin-top: 24px;
+  .header-content {
+    
   }
   #header-title {
       display: none;
   }
 } 
 
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices (landscape tablets, 768px and up)*/ 
 @media only screen and (min-width: 768px) {
   .header-content {
-      margin-top: 64px;
   }
-  #header-title {
-      display: none;
-  }
+
+  #header-title {    
+    display: block;
+}  
 } 
 
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices (laptops/desktops, 992px and up)*/ 
 @media only screen and (min-width: 992px) {
-  .header-content  {
-      margin-top: 62px;
+  .header-content {
   }
-  #header-title {
-      
+
+  #header-title {    
       display: initial;
-      color: #969696;
-      font-style: normal;
-      font-weight: normal;   
-      margin-top: auto;
-      font-size: 18px;
   }  
 } 
-
 
 /*Buttons*/
 #user-name-button {
@@ -53,8 +46,6 @@
   border: 1px solid #B8B8B8;
   box-sizing: border-box;
   box-shadow: none;
-  padding-left: 12px;
-  padding-right: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,10 +68,20 @@
   align-items: center;
 }
 
-/*Header*/
+/*--------------Header--------------*/
+#header-title {
+  color: #969696;
+  font-style: normal;
+  font-weight: normal;   
+  font-size: 18px;
+}
 
-.header-button-group {
-  display: flex;
-  flex-direction: row;
+#nav-hr {
+  background: #B8B8B8;
+  border-radius: 2px;
+  height: 2px;
+  border: 0;
+  box-shadow: none;
+  margin-top: 16px;
 }
 
