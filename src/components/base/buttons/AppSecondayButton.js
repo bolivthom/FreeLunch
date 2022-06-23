@@ -1,13 +1,13 @@
 import * as React from "react";
 
-function UsernameButton({ Title}) {
+function AppSecondaryButton({ Title, BackgroundColor,}) {
     return (
         <div className="header-content">
-            <button id="user-name-button">
+            <button id="user-name-button" style={{backgroundColor: BackgroundColor}}>
                 <p className="button-title">{Title}</p>
             </button>
         </div>
     );
 }
 
-export default UsernameButton;
+export default AppSecondaryButton;

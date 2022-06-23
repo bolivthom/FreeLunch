@@ -2,8 +2,8 @@ import * as React from "react";
 import { routes } from "../../nav/routes";
 
 //Buttons
-import UsernameButton from "../base/buttons/UsernameButton"
-import AppHeaderButton from "../base/buttons/AppHeaderButton";
+import AppSecondaryButton from "../base/buttons/AppSecondayButton"
+import AppPrimaryButton from "../base/buttons/AppPrimaryButton";
 
 //Icons
 import { ReactComponent as AllCardsIcon } from "../../assets/allcards.svg";
@@ -11,9 +11,7 @@ import { ReactComponent as DecksIcon } from "../../assets/decks.svg";
 
 const styles = {
     appHeader: {
-        paddingRight: '10%',
-        paddingLeft: '10%',
-        paddingTop: '5%'
+        paddingTop: '5%',
     },
     leftMenuItems: {
         display: 'flex',
@@ -25,6 +23,13 @@ const styles = {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+    },
+    navHr: {
+        background: '#B8B8B8',
+        borderRadius: '2px',
+        height: '2px',
+        border: '0',
+        boxShadow: 'none',
     }
 }
 
@@ -34,18 +39,18 @@ function AppHeader() {
             <div style={styles.headerContent} className="header-content">
                 <div>
                     <div style={styles.leftMenuItems}>
-                        <AppHeaderButton Title={"All Cards"} BackgroundColor={"#FFFFFF"} Icon={<AllCardsIcon/>}/>
-                        <AppHeaderButton Title={"Decks"} BackgroundColor={"#E4E4E4"} Icon={<DecksIcon/>}/>
+                        <AppPrimaryButton Title={"All Cards"} BackgroundColor={"#FFFFFF"} Icon={<AllCardsIcon />} />
+                        <AppPrimaryButton Title={"Decks"} BackgroundColor={"#E4E4E4"} Icon={<DecksIcon />} />
                     </div>
                 </div>
                 <div>
                     <h6 id="header-title">SW-API Deck Builder</h6>
                 </div>
                 <div>
-                    <div><UsernameButton Title={"Bavin Edwards"} /></div>
+                    <div><AppSecondaryButton Title={"Bavin Edwards"} BackgroundColor={"#EDEDED"}/></div>
                 </div>
             </div>
-            <hr id="nav-hr"></hr>
+            <hr style={styles.navHr}></hr>
         </div>
     );
 }

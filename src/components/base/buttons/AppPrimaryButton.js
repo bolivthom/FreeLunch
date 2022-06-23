@@ -1,15 +1,15 @@
 import * as React from "react";
 
-function AppHeaderButton({ Title, BackgroundColor, Icon }) {
+function AppPrimaryButton({ Title, BackgroundColor, Icon }) {
     return (
         <div className="header-content">
             <button id="app-header-button" style={{backgroundColor: BackgroundColor}}>
-                { Icon }
+                <div className="button-image">{ Icon }</div>
                 <p className="button-title">{ Title }</p>
             </button>
         </div>
     );
 }
 
-export default AppHeaderButton;
+export default AppPrimaryButton;
 
