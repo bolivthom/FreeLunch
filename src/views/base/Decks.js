@@ -1,9 +1,10 @@
 import * as React from "react";
+import AppDeckListControls from "../../components/sections/AppDeckListControls";
 
 function Decks() {
     return (
         <div>
-            <h1>Decks</h1>
+            <AppDeckListControls/>
         </div>
     );
 }

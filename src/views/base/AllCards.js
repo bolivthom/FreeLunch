@@ -1,9 +1,12 @@
 import * as React from "react";
+import AppCardControls from "../../components/sections/AppCardListControls";
+import AllCardsTemplate from "../../components/base/cards/AllCards/AllCardsTemplate";
 
 function AllCards() {
     return (
         <div>
-            <h1>All Cards</h1>
+            <AppCardControls />
+            <AllCardsTemplate/>
         </div>
     );
 }

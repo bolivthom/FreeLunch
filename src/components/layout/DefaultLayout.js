@@ -18,9 +18,8 @@ function DefaultLayout() {
             <AppBreadCrumbs
                 ParentTitle={"All Cards"}
                 ParentTitleStyle={{ color: '#757575', marginRight: '8px', fontSize: '14px' }}
-                ChildTitle={"Blah"}
+                ChildTitle={"Select a card"}
                 ChildTitleStyle={{ marginLeft: '8px', fontSize: '14px' }} />
-            <AppCardControls />
             <AppContent/>
         </div>
     );

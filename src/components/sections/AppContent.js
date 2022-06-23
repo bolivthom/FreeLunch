@@ -14,11 +14,11 @@ function AppContent() {
             {
                 routes.map((route, index) => {
                     const Component = route.component
-                    const isActive = window.location.pathname === route.path;
+                    const ActiveRoute = window.location.pathname === route.path;
 
                     return (
                         <div>
-                            {Component}
+                            {ActiveRoute && Component}
                         </div>
                     )
                 })
