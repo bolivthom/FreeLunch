@@ -1,13 +1,10 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { routes } from "../../nav/routes";
+import { Link } from "react-router-dom";
 
 //Buttons
 import AppSecondaryButton from "../base/buttons/AppSecondayButton"
 import AppPrimaryButton from "../base/buttons/AppPrimaryButton";
-
-//Icons
-import { ReactComponent as AllCardsIcon } from "../../assets/allcards.svg";
-import { ReactComponent as DecksIcon } from "../../assets/decks.svg";
 
 const styles = {
     appHeader: {
@@ -30,24 +27,43 @@ const styles = {
         height: '2px',
         border: '0',
         boxShadow: 'none',
-    }
+    },
+    link: {
+        textDecoration: 'none',
+    },
 }
 
 function AppHeader() {
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
+    function handleLinkItemClick(index) {
+        setSelectedIndex(index);
+    }
+
+
     return (
         <div style={styles.appHeader}>
             <div style={styles.headerContent} className="header-content">
                 <div>
                     <div style={styles.leftMenuItems}>
-                        <AppPrimaryButton Title={"All Cards"} BackgroundColor={"#FFFFFF"} Icon={<AllCardsIcon />} />
-                        <AppPrimaryButton Title={"Decks"} BackgroundColor={"#E4E4E4"} Icon={<DecksIcon />} />
+                        {
+                            routes.map((route, index) => {
+                                const Icon = route.icon;
+                                const isActive = window.location.pathname === route.path;
+
+                                return (
+                                    <Link style={styles.link} key={index} to={route.path || '/'} onClick={() => handleLinkItemClick(index)}>
+                                        <AppPrimaryButton Title={route.name} BackgroundColor={isActive ? "white" : "#EDEDED"} Icon={Icon}></AppPrimaryButton>
+                                    </Link>)
+                            })
+                        }
                     </div>
                 </div>
                 <div>
                     <h6 id="header-title">SW-API Deck Builder</h6>
                 </div>
                 <div>
-                    <div><AppSecondaryButton Title={"Bavin Edwards"} BackgroundColor={"#EDEDED"}/></div>
+                    <div><AppSecondaryButton Title={"Bavin Edwards"} BackgroundColor={"#EDEDED"} /></div>
                 </div>
             </div>
             <hr style={styles.navHr}></hr>

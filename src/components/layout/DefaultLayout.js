@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AppHeader from "../sections/AppHeader";
 import AppBreadCrumbs from "../sections/AppBreadcrumbs";
 import AppCardControls from "../sections/AppCardListControls";
+import AppContent from "../sections/AppContent";
 
 const styles = {
     body: {
@@ -20,6 +21,7 @@ function DefaultLayout() {
                 ChildTitle={"Blah"}
                 ChildTitleStyle={{ marginLeft: '8px', fontSize: '14px' }} />
             <AppCardControls />
+            <AppContent/>
         </div>
     );
 }
