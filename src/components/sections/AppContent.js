@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Navigate, Outlet, Route, Routes } from 'react-router-dom'
-
+import { useParams } from 'react-router-dom'
+import { getCurrentRoute } from "../../nav/utils";
 //routes
 import { routes } from "../../nav/routes";
 
@@ -9,12 +9,13 @@ import { ReactComponent as ArrowRightIcon } from "../../assets/arrowright.svg";
 
 //Components
 function AppContent() {
+    const params = useParams();
     return (
         <div>
             {
                 routes.map((route, index) => {
                     const Component = route.component
-                    const ActiveRoute = window.location.pathname === route.path;
+                    const ActiveRoute = !getCurrentRoute(route.path, routes, params)?.path;
 
                     return (
                         <div>
