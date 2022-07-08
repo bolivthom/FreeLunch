@@ -1,4 +1,4 @@
-export const getAllRoutes = (routes, params = {}) => {
+const getAllRoutes = (routes, params = {}) => {
   let troutes = [...routes];
   return troutes
     .map((route) => getChildren(route, [], params))
@@ -14,7 +14,7 @@ export const getAllRoutes = (routes, params = {}) => {
     }));
 };
 
-export const getChildren = (route, array = [], params = {}) => {
+const getChildren = (route, array = [], params = {}) => {
   if (route.children) {
     route.children.forEach((child) => {
       const path = `${route.path}/${child.path}`;
@@ -26,9 +26,15 @@ export const getChildren = (route, array = [], params = {}) => {
   return [route, array];
 };
 
-export const getCurrentRoute = (pathname, routes, params = {}) => {
+const getCurrentRoute = (pathname, routes, params = {}) => {
     let currentRoute = getAllRoutes(routes, params).find(
       (route) => route.path === pathname
     );
     return currentRoute;
+};
+
+export {
+    getAllRoutes,
+    getChildren,
+    getCurrentRoute
 };

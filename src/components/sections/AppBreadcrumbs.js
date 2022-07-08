@@ -7,7 +7,7 @@ import { ReactComponent as ArrowRightIcon } from "../../assets/arrowright.svg";
 
 function AppBreadCrumbs({ ParentTitle, ParentTitleStyle, ChildTitle, ChildTitleStyle }) {
     return (
-        <div class="breadcrumb">
+        <div className="breadcrumb">
             <p id="all-cards-nav" style={ParentTitleStyle} >{ParentTitle}</p>
             <ArrowRightIcon />
             <p id="select-card-nav" style={ChildTitleStyle}>{ChildTitle}</p>

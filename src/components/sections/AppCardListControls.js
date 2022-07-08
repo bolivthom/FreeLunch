@@ -11,7 +11,7 @@ import AppPrimaryButton from "../base/buttons/AppPrimaryButton";
 
 function AppCardControls() {
     return (
-        <div class="sub-nav">
+        <div className="sub-nav">
             <Searchbar />
             <AppSecondaryButton Title={"A-Z"} BackgroundColor={"#FFFFFF"} />
             <AppPrimaryButton Title={"Youngest"} BackgroundColor={"#E4E4E4"} />

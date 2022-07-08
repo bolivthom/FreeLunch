@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useParams } from 'react-router-dom'
+import { Navigate, Outlet, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { getCurrentRoute } from "../../nav/utils";
 //routes
 import { routes } from "../../nav/routes";
@@ -9,17 +9,17 @@ import { ReactComponent as ArrowRightIcon } from "../../assets/arrowright.svg";
 
 //Components
 function AppContent() {
+    const currentLocation = useLocation().pathname;
     const params = useParams();
+    const currentRoute = getCurrentRoute(currentLocation, routes, params);
     return (
         <div>
             {
                 routes.map((route, index) => {
-                    const Component = route.component
-                    const ActiveRoute = !getCurrentRoute(route.path, routes, params)?.path;
-
+                    const ActiveRoute = currentRoute?.name === route.name;
                     return (
-                        <div>
-                            {ActiveRoute && Component}
+                        <div key={index}>
+                            {ActiveRoute && route.component}
                         </div>
                     )
                 })
