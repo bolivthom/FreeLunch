@@ -6,9 +6,7 @@ function savedDecksReducer(state, { type, payload }) {
         case "push":
             return [...state, payload];
         case "update":
-            return state.map((evt) =>
-                evt.id === payload.id ? payload : evt
-            );
+            return state.map((item) => item.id === payload.id ? payload : item);
         case "delete":
             return state.filter((evt) => evt.id !== payload.id);
         default:

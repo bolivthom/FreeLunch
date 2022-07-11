@@ -47,9 +47,9 @@ function AppHeader() {
                 <div>
                     <div style={styles.leftMenuItems}>
                         {
-                            routes.map((route, index) => {
+                            routes.filter((route) => !route.path.includes(':')).map((route, index) => {
                                 const Icon = route.icon;
-                                const isActive = window.location.pathname === route.path;
+                                const isActive = window.location.pathname === route.path || (route.root && window.location.pathname === '/');
 
                                 return (
                                     <Link style={styles.link} key={index} to={route.path || '/'} onClick={() => handleLinkItemClick(index)}>

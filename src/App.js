@@ -19,9 +19,9 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<DefaultLayout />} />
-          {routes.filter((route) => route.path != '/').map((route, index) => (
-          <Route key={index} path={route.path} element={<DefaultLayout />} />
-        ))}
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={<DefaultLayout />} />
+          ))}
         </Routes>
       </div>
   );
