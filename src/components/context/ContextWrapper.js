@@ -1,6 +1,5 @@
 import React, { useReducer, useState, useEffect, useMemo } from 'react'
 import GlobalContext from './GlobalContext'
-import dayjs from 'dayjs'
 
 function savedDecksReducer(state, { type, payload }) {
     switch (type) {

@@ -9,7 +9,7 @@ function CardTemplate({ match }) {
     const [card, setCard] = useState(null);
 
     useEffect(() => {
-        fetchCards(`https://swapi.dev/api/people/${id}`).then((items) => setCard(items[0]));
+        fetchCards(`https://swapi.dev/api/people/${id}`, true).then((items) => setCard(items[0]));
     }, []);
 
     return (
@@ -44,6 +44,14 @@ function CardTemplate({ match }) {
                         <div className="card-content-row">
                             <div className="card-icon-group">
                                 <p className="card-text">STARSHIP</p>
+                                <p>{attrib}</p>
+                            </div>
+                        </div>
+                    ))}
+                    {card?.film_names.map((attrib) => (
+                        <div className="card-content-row">
+                            <div className="card-icon-group">
+                                <p className="card-text">FILM</p>
                                 <p>{attrib}</p>
                             </div>
                         </div>
