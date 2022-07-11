@@ -13,36 +13,36 @@ function AllCardsTemplate() {
     }, []);
 
     return (
-        <div class="grid">
-            {cards.map((card)=> (
-                <Link to={`/card/${card.url.split("/")[5]}`}>
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-name" id="blah">{card.name}</h3>
+        <div className="grid">
+            {cards.map((card, index)=> (
+                <Link key={index} to={`/card/${card.url.split("/")[5]}`}>
+                    <div className="card">
+                        <div className="card-header">
+                            <h3 className="card-name" id="blah">{card.name}</h3>
                         </div>
-                        <div class="card-content">
-                            <div class="content-header">
-                                <div class="card-icon-group-header">
+                        <div className="card-content">
+                            <div className="content-header">
+                                <div className="card-icon-group-header">
                                     <p>19BBY</p>
                                     <p>{card.species_names[0]}</p>
                                 </div>
                             </div>
                             <hr id="card-hr" />
-                            <div class="card-content-row">
-                                <div class="card-icon-group">
-                                    <p class="card-text">HOMEWORLD</p>
+                            <div className="card-content-row">
+                                <div className="card-icon-group">
+                                    <p className="card-text">HOMEWORLD</p>
                                     <p>{card.homeworld_name}</p>
                                 </div>
                             </div>
-                            <div class="card-content-row">
-                                <div class="card-icon-group">
-                                    <p class="card-text">VEHICLES</p>
+                            <div className="card-content-row">
+                                <div className="card-icon-group">
+                                    <p className="card-text">VEHICLES</p>
                                     <p>{card.vehicles.length}</p>
                                 </div>
                             </div>
-                            <div class="card-content-row">
-                                <div class="card-icon-group">
-                                    <p class="card-text">STARSHIP</p>
+                            <div className="card-content-row">
+                                <div className="card-icon-group">
+                                    <p className="card-text">STARSHIP</p>
                                     <p>{card.starships.length}</p>
                                 </div>
                             </div>

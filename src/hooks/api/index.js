@@ -12,7 +12,8 @@
 
 export const cardsUrl = 'https://swapi.dev/api/people/';
 
-export const processCards = async (rawCards, fullFetch = false) => {
+export const processCards = async (response, fullFetch = false) => {
+  const rawCards = fullFetch ? [response] : response.results;
   return Promise.all(rawCards.map(async (card) => ({
         ...card,
         homeworld_name: await getAttribute(card.homeworld, 'name'),
@@ -26,14 +27,8 @@ export const getAttribute = async (url, key) => {
   return await fetch(url).then(async (res) => await res.json().then((json)=> json[key])).catch((error) => 'Unknown');
 };
 
-export const fetchCard = async (url) => {
+export const fetchCards = async (url = cardsUrl, fullFetch = false) => {
     return await fetch(url)
-      .then(async(rawResponse) => await rawResponse.json().then(async (response) => (await processCards([response], true))[0]))
-      .catch((err) => null);
-}
-
-export const fetchCards = async () => {
-    return await fetch(cardsUrl)
-      .then(async(rawResponse) => await rawResponse.json().then(async (response) => await processCards(response.results)))
+      .then(async(rawResponse) => await rawResponse.json().then(async (response) => await processCards(response, fullFetch)))
       .catch((err) => []);
 }
