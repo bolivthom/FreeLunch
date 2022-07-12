@@ -28,10 +28,29 @@ const getChildren = (route, array = [], params = {}) => {
 
 const getCurrentRoute = (pathname, routes, params = {}) => {
     let currentRoute = getAllRoutes(routes, params).find(
-      (route) => route.path === pathname
+      (route) => route.path === pathname || (route.root && pathname === '/')
     );
     return currentRoute;
 };
+
+const routes = [
+    {
+        name: 'All Cards',
+        path: '/',
+    },
+    {
+        name: 'All Cards',
+        path: '/all-cards',
+    },
+    {
+        name: 'Card',
+        path: '/card/:id',
+    },
+    {
+        name: 'Decks',
+        path: '/decks',
+    },
+]
 
 export {
     getAllRoutes,

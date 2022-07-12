@@ -8,13 +8,8 @@ import { ReactComponent as DecksIcon } from "../assets/decks.svg";
 export const routes = [
     {
         name: 'All Cards',
-        path: '/',
-        icon: <AllCardsIcon/>,
-        component: <AllCards/>
-    },
-    {
-        name: 'All Cards',
         path: '/all-cards',
+        root: true,
         icon: <AllCardsIcon/>,
         component: <AllCards/>
     },

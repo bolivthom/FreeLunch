@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import ContextWrapper from './components/context/ContextWrapper'
+import 'bootstrap/dist/css/bootstrap-grid.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>

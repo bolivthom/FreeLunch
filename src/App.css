@@ -307,3 +307,164 @@ button:focus {
 .card-content-row p,.content-header p {
   color: #3B3B3B;
 }
+
+.dialog-box {
+  box-sizing: border-box;
+  width: 256px;
+  height: 120px;
+  background: #FFFFFF;
+  border: 1px solid #B8B8B8;
+  box-shadow: 0px 19px 25px rgba(0, 0, 0, 0.14944), 0px 1.26352px 1.66253px rgba(0, 0, 0, 0.37);
+  border-radius: 4px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  padding: 10px 10px;
+}
+
+.deck-input-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #3B3B3B;
+}
+
+.deck-input-label {
+  width: 42px;
+  height: 8px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 8px;
+  color: #969696;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  display: block;
+}
+
+.deck-input {
+  width: 85px;
+  height: 14px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #3B3B3B;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  border: none;
+  border-bottom: 1px solid gray;
+  outline: none;
+}
+
+.deck-card {
+  width: 216px;
+  height: 180px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  position: relative;
+}
+
+.deck-card-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.deck-card-header {
+  height: 98px;
+  width: 100%;
+  position: relative;
+}
+
+.card-rebel {
+  background: #C53030;
+}
+
+.card-empire {
+  background: #3B3B3B;
+}
+.card-jedi {
+  background: #2F855A;
+}
+
+.deck-card-number {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 40px;
+  color: #3B3B3B;
+}
+
+.deck-card-subtitle {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: right;
+  color: #969696;
+}
+
+a { 
+  text-decoration: none;
+}
+
+.deck-card-symbol {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+  opacity: 0.5;
+}
+
+.card-control {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.dialog-box.deck-selector {
+  background: linear-gradient(180deg, rgba(237, 237, 237, 0) 0%, #EDEDED 100%);
+  height: unset;
+  max-height: 300px;
+}
+
+
+.dialog-box .deck-option {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 6px 8px;
+  gap: 10px;
+  width: 192px;
+  height: 26px;
+  background: #FFFFFF;
+  border-radius: 2px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 10px 10px;
+  text-align: left;
+}
+
+
+
+.dialog-box .deck-option:hover {
+  cursor: pointer;
+  background-color: gray;
+  transition: ease-in 0.25s;
+}
