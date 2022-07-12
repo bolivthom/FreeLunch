@@ -20,7 +20,7 @@ export const processCards = async (response, fullFetch = false) => {
         species_names: await Promise.all(card.species.map(async (attrib) => await getAttribute(attrib, 'name'))),
         vehicle_names: !fullFetch ? [] : await Promise.all(card.vehicles.map(async (attrib) => await getAttribute(attrib, 'name'))),
         starship_names: !fullFetch ? [] : await Promise.all(card.starships.map(async (attrib) => await getAttribute(attrib, 'name'))),
-        // film_names: !fullFetch ? [] : await Promise.all(card.films.map(async (attrib) => await getAttribute(attrib, 'title')))
+        film_names: !fullFetch ? [] : await Promise.all(card.films.map(async (attrib) => await getAttribute(attrib, 'title')))
   }))).catch((err) => []);
 };
 
