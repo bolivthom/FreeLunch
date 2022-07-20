@@ -83,7 +83,7 @@ const { searchTerm } = React.useContext(GlobalContext);
   return (
     <div className="grid card-grid">
       {cards.map((card, index) => (
-        <CardTemplate key={index} cardData={card} summary={true}/>
+        <CardTemplate key={card.name} cardData={card} summary={true}/>
       ))}
     </div>
   );
