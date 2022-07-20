@@ -1,7 +1,7 @@
 const getAllRoutes = (routes, params = {}) => {
   let troutes = [...routes];
   return troutes
-    .map((route) => getChildren(route, [], params))
+    .map((route) => [route])
     .flat(Infinity)
     .map(({ path, ...rest }) => ({
       path: Object.keys(params).length
@@ -12,18 +12,6 @@ const getAllRoutes = (routes, params = {}) => {
         : path,
       ...rest,
     }));
-};
-
-const getChildren = (route, array = [], params = {}) => {
-  if (route.children) {
-    route.children.forEach((child) => {
-      const path = `${route.path}/${child.path}`;
-      array.push({ ...child, path });
-      let descendants = child.children ? getAllRoutes(child.children, params) : [];
-      descendants.forEach((desc) => getChildren(desc, array, params));
-    });
-  }
-  return [route, array];
 };
 
 const getCurrentRoute = (pathname, routes, params = {}) => {
@@ -54,6 +42,5 @@ const routes = [
 
 export {
     getAllRoutes,
-    getChildren,
     getCurrentRoute
 };
