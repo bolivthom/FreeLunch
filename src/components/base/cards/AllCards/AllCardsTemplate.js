@@ -75,6 +75,45 @@ function AllCardsTemplate() {
     }
   }
 
+  /*
+  function sortByYoungest() {
+
+    let temp = card.slice()
+    setSortButton2("sort_button1")
+    setSortButton1("sort_button2")
+    setSortButton3("sort_button2")
+    
+    tempPeople.sort(
+        function (a, b) {
+            let Abirth_year = a.birth_year.split("B")
+            let A_age = Abirth_year[0]
+
+            let Bbirth_year = b.birth_year.split("B")
+            let B_age = Bbirth_year[0]
+
+            if (A_age == 'unknown') {
+                a.age = 0
+            }
+            else {
+                a.age = parseFloat(A_age)
+            }
+
+            if (B_age == 'unknown') {
+                b.age = 0
+            }
+            else {
+                b.age = parseFloat(B_age)
+            }
+            return a.age - b.age
+        }
+    )
+    //console.log(tempPeople) 
+    setPeople(tempPeople)
+    console.log(people)
+
+}
+*/
+
   return (
     <div className="grid">
       {cards.map((card, index) => (
@@ -134,7 +173,7 @@ function AllCardsTemplate() {
               <div className="content-header">
                 <div className="card-icon-group">
                   {getGenderIcon(card.gender)}
-                  <p>19BBY</p>
+                  <p>{card.birth_year}</p>
                 </div>
                 <p>{card.species_names[0]}</p>
               </div>
