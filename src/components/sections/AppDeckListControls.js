@@ -47,8 +47,9 @@ function AppDeckListControls() {
     }
 
   return (
-    <div className="clan-sub-nav">
+    <div className="deck-sub-nav">
       <Searchbar />
+      
       <div ref={divRef}>
         <AppSecondaryButton
           Title={"+"}
