@@ -29,11 +29,14 @@ function CardsOfADeck() {
     React.useEffect(() => {
         if(deck?.items || items.length > 0) setItems(filterByName(deck.items, searchTerm));
     }, [searchTerm]);
-
-    
     
     return (
         <div className="grid card-grid">
+            {items.length === 0 && (
+                <>
+                <p>No Cards Added To Deck. Please add cards to the deck to view.</p>
+                </>
+            )}
             {items.map((card, index) => (
                 <CardTemplate key={card.name} cardData={card} deckId={deck?.id} />
             ))}

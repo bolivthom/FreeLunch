@@ -246,7 +246,7 @@ function CardTemplate({ cardData = null, summary = false, deckId = 0 }) {
                   .filter((deck)=> deck.id != deckId)
                   .map((deck, index) => (
                     <Col
-                      key={index}
+                      key={deck.id}
                       sm="12"
                       onClick={() => { handleDeckSelection(deck, card); } }
                     >

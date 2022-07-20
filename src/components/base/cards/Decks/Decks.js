@@ -34,7 +34,7 @@ function Decks() {
                 </>
             )}
             {filteredDecks.map((deck, index)=> (
-                <DeckCardTemplate key={index} deckData={deck} />
+                <DeckCardTemplate key={deck.id} deckData={deck} />
             ))}
         </div>
     );
