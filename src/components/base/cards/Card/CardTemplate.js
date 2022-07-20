@@ -256,6 +256,7 @@ function CardTemplate({ cardData = null, summary = false, deckId = 0 }) {
                     </Col>
                 ))}
               </Row>
+
             </div>
           </Popover>
         </>
