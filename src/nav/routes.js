@@ -1,6 +1,7 @@
 import AllCards from "../views/base/AllCards";
 import Card from "../views/base/Card";
 import Decks from "../views/base/Decks";
+import CardsOfADeck from "../views/base/Deck";
 
 import { ReactComponent as AllCardsIcon } from "../assets/allcards.svg";
 import { ReactComponent as DecksIcon } from "../assets/decks.svg";
@@ -24,5 +25,11 @@ export const routes = [
         path: '/decks',
         icon: <DecksIcon/>,
         component: <Decks/>
+    },
+    {
+        name: 'Deck',
+        path: '/deck/:id',
+        icon: <DecksIcon/>,
+        component: <CardsOfADeck/>
     },
 ]

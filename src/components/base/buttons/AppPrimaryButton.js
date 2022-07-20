@@ -1,6 +1,7 @@
 import * as React from "react";
 
-function AppPrimaryButton({ Title, BackgroundColor, Icon, style }) {
+function AppPrimaryButton({ Title, BackgroundColor, Icon, className, style }) {
+
     return (
         <div style={style} className="header-content">
             <button id="app-header-button" style={{backgroundColor: BackgroundColor}}>

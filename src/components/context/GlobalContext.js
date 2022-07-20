@@ -7,6 +7,8 @@ const GlobalContext = React.createContext({
     setSelectedDeck: () => {},
     showDeckModal: () => {},
     setShowDeckModal: () => {},
+    searchTerm: '',
+    setSearchTerm: () => {},
 })
 
 export default GlobalContext;

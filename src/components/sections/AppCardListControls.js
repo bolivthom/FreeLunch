@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
+import { Row, Col } from 'react-bootstrap'
 //Icons
 import { ReactComponent as ArrowRightIcon } from "../../assets/arrowright.svg";
 

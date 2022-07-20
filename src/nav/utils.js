@@ -21,25 +21,6 @@ const getCurrentRoute = (pathname, routes, params = {}) => {
     return currentRoute;
 };
 
-const routes = [
-    {
-        name: 'All Cards',
-        path: '/',
-    },
-    {
-        name: 'All Cards',
-        path: '/all-cards',
-    },
-    {
-        name: 'Card',
-        path: '/card/:id',
-    },
-    {
-        name: 'Decks',
-        path: '/decks',
-    },
-]
-
 export {
     getAllRoutes,
     getCurrentRoute

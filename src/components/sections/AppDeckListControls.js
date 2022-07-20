@@ -47,8 +47,9 @@ function AppDeckListControls() {
     }
 
   return (
-    <div className="clan-sub-nav">
+    <div className="deck-sub-nav">
       <Searchbar />
+      
       <div ref={divRef}>
         <AppSecondaryButton
           Title={"+"}
@@ -75,7 +76,7 @@ function AppDeckListControls() {
         <div className="dialog-box">
             <Row>
                 <Col sm='4' className="align-items-bottom">
-                    <h4 className="clan-input-title">Faction</h4>
+                    <h4 className="deck-input-title">Faction</h4>
                 </Col>
                 <Col sm='8' >
                    <Row className="no-gutters" >
@@ -96,8 +97,8 @@ function AppDeckListControls() {
             </Row>
             <Row>
                 <Col sm='12' className="align-items-bottom">
-                    <label className='clan-input-label' htmlFor='clan-name'>Deck Name</label>
-                    <input className='clan-input' id='clan-name' onChange={(evt) => setDeckName(evt.target.value)} onKeyDown={handleKeyDown}></input>
+                    <label className='deck-input-label' htmlFor='clan-name'>Deck Name</label>
+                    <input className='deck-input' id='deck-name' onChange={(evt) => setDeckName(evt.target.value)} onKeyDown={handleKeyDown}></input>
                 </Col>
             </Row>
         </div>
