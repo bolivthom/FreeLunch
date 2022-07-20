@@ -6,7 +6,9 @@ function Card() {
     return (
         <div>
             <AppCardControls />
-            <CardTemplate/>
+            <div className="card-grid">
+                <CardTemplate/>
+            </div>
         </div>
     );
 }

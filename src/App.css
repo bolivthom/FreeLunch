@@ -2,7 +2,9 @@
   background-color: #EDEDED;
   min-height: 100vh;
 }
-
+.row {
+  width: 100%;
+}
 /* Extra small devices (phones, 600px and down)*/
 @media only screen and (max-width: 600px) {
   .sub-nav, .deck-sub-nav {
@@ -24,11 +26,12 @@
     width: 100%;
 }
 .card {
-    height: 282px;
+    min-height: 282px;
     width: 100%;
     border-radius: 8px;
     background-color: #FFFFFF;
     margin-bottom: 24px;
+    padding-bottom: 10px;
 }  
 } 
 
@@ -53,11 +56,12 @@
     width: 100%;
 }
 .card {
-    height: 282px;
+    min-height: 282px;
     width: 100%;
     border-radius: 8px;
     background-color: #FFFFFF;
     margin-bottom: 24px;
+    padding-bottom: 10px;
 }  
 } 
 
@@ -86,11 +90,15 @@
 
 }
 .card {
-  height: 282px;
+  min-height: 282px;
   width: 100%;
   margin-bottom: 0px;
 } 
 } 
+
+.card-grid {
+  padding: 2rem 0;
+}
 
 /* Large devices (laptops/desktops, 992px and up)*/ 
 @media only screen and (min-width: 992px) {
@@ -99,6 +107,24 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 6px;
+
+    width: 584px;
+    height: 32px;
+
+    border-radius: 8px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
   }
 
   .deck-sub-nav {
@@ -215,7 +241,7 @@ button:focus {
 
 /*---------- Cards -----------*/
 .card {
-  height: 282px;
+  min-height: 282px;
   width: 100%;
   border-radius: 8px;
   background-color: #FFFFFF;
@@ -285,7 +311,7 @@ button:focus {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
 }
 
 .card-icon-group p {
@@ -382,6 +408,8 @@ button:focus {
   font-size: 24px;
   line-height: 24px;
   color: #FFFFFF;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .deck-card-header {
@@ -436,36 +464,108 @@ a {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+.card-pin {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
 }
 
 .dialog-box.deck-selector {
-  background: linear-gradient(180deg, rgba(237, 237, 237, 0) 0%, #EDEDED 100%);
+  background: #EDEDED;
+  /*linear-gradient(180deg, rgba(237, 237, 237, 0) 0%, #EDEDED 100%);*/
   height: unset;
   max-height: 300px;
+  display: flex;
+  justify-content: center;
 }
 
 
 .dialog-box .deck-option {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: cneter;
   padding: 6px 8px;
   gap: 10px;
-  width: 192px;
-  height: 26px;
   background: #FFFFFF;
   border-radius: 2px;
   flex: none;
   order: 0;
   flex-grow: 0;
-  margin: 10px 10px;
+  margin: 5px 0px;
   text-align: left;
 }
 
+.dialog-box .deck-option-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 0.2rem;
+  color: #3B3B3B;
+}
 
 
 .dialog-box .deck-option:hover {
   cursor: pointer;
   background-color: gray;
   transition: ease-in 0.25s;
+}
+
+.card-sex {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  /* identical to box height, or 100% */
+
+  text-align: center;
+
+  /* default/neutral-gray/800 */
+
+  color: #3B3B3B;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.left {
+  display: flex;
+  justify-content: flex-start;
+}
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.popover-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  /* identical to box height, or 100% */
+
+
+  /* default/neutral-gray/500 */
+
+  color: #969696;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }

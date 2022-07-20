@@ -11,7 +11,6 @@ import GlobalContext from '../../../context/GlobalContext'
 
 function Decks() {
     const { decks } = useContext(GlobalContext)
-    console.log('DECKS', decks);
     const symbols = {
         rebel: <RebelAllianceSymbol />,
         empire: <GalaticEmpireSymbol />,
@@ -19,7 +18,7 @@ function Decks() {
     };
 
     return (
-        <div className="grid">
+        <div className="grid card-grid">
             {decks.length === 0 && (
                 <>
                 <p>No Decks Created. Please create a Deck by pressing the Add Deck 

@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import ContextWrapper from './components/context/ContextWrapper'
 import 'bootstrap/dist/css/bootstrap-grid.css';
+import "@fontsource/roboto";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
