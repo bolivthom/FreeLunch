@@ -48,14 +48,6 @@ function CardTemplate({ match }) {
                             </div>
                         </div>
                     ))}
-                    {card?.film_names.map((attrib) => (
-                        <div className="card-content-row">
-                            <div className="card-icon-group">
-                                <p className="card-text">FILM</p>
-                                <p>{attrib}</p>
-                            </div>
-                        </div>
-                    ))}
                 </div>
             </div>
         </div>

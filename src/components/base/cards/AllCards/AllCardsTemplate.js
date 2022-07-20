@@ -7,8 +7,13 @@ import GlobalContext from "../../../context/GlobalContext";
 import { Col, Row } from "react-bootstrap";
 import Popover from "@material-ui/core/Popover";
 
-//Icons
-//import { ReactComponent as ArrowRightIcon } from "../../assets/arrowright.svg";
+import { ReactComponent as StarshipIcon } from "../../../../assets/starship.svg";
+import { ReactComponent as VehicleIcon } from "../../../../assets/vehicle.svg";
+import { ReactComponent as WorldIcon } from "../../../../assets/world.svg";
+import { ReactComponent as MaleIcon } from "../../../../assets/male.svg";
+import { ReactComponent as FemaleIcon } from "../../../../assets/female.svg";
+
+
 
 function AllCardsTemplate() {
   const [cards, setCards] = useState([]);
@@ -27,35 +32,47 @@ function AllCardsTemplate() {
     let items = [...(deck?.items || [])];
     const cardJSON = JSON.stringify(card)
     const itemExists = !!items.find((item) => JSON.stringify(item) === cardJSON);
-    if(itemExists) {
-        items = items.map((item) => item.id === card.id ? card : item);
+    if (itemExists) {
+      items = items.map((item) => item.id === card.id ? card : item);
     } else {
-        items.push(card);
+      items.push(card);
     }
 
     dispatchDecks({
-        type: 'update',
-        payload: {
-            ...deck,
-            items
-        }
+      type: 'update',
+      payload: {
+        ...deck,
+        items
+      }
     })
   }
 
   function handleControlClick(evt, id) {
     const anchorEl = evt.target.closest('.card-control');
-    console.log({anchorEl, id})
+    console.log({ anchorEl, id })
     setPopOverState({
-        anchorEl: anchorEl,
-        popOverId: id
+      anchorEl: anchorEl,
+      popOverId: id
     })
   }
 
   function handleClose() {
     setPopOverState({
-        anchorEl: null,
-        popOverId: null,
+      anchorEl: null,
+      popOverId: null,
     })
+  }
+
+  function getGenderIcon(gender) {
+    switch (gender) {
+      case 'male':
+        return <MaleIcon />;
+        break;
+      case 'female':
+        return <FemaleIcon />;
+      default:
+        return 'n/a'
+    }
   }
 
   return (
@@ -100,7 +117,7 @@ function AllCardsTemplate() {
                             key={index}
                             sm="12"
                             className="deck-option  p-1 d-flex justify-content-center"
-                            onClick={() => { handleDeckSelection(deck, card)}}
+                            onClick={() => { handleDeckSelection(deck, card) }}
                           >
                             <div>{deck.name} Deck</div>
                           </Col>
@@ -115,29 +132,33 @@ function AllCardsTemplate() {
           <Link key={index} to={`/card/${card.url.split("/")[5]}`}>
             <div className="card-content">
               <div className="content-header">
-                <div className="card-icon-group-header">
+                <div className="card-icon-group">
+                  {getGenderIcon(card.gender)}
                   <p>19BBY</p>
-                  <p>{card.species_names[0]}</p>
                 </div>
+                <p>{card.species_names[0]}</p>
               </div>
               <hr id="card-hr" />
               <div className="card-content-row">
                 <div className="card-icon-group">
+                  <WorldIcon />
                   <p className="card-text">HOMEWORLD</p>
-                  <p>{card.homeworld_name}</p>
                 </div>
+                <p>{card.homeworld_name}</p>
               </div>
               <div className="card-content-row">
                 <div className="card-icon-group">
+                  <VehicleIcon />
                   <p className="card-text">VEHICLES</p>
-                  <p>{card.vehicles.length}</p>
                 </div>
+                <p>{card.vehicles.length}</p>
               </div>
               <div className="card-content-row">
                 <div className="card-icon-group">
+                  <StarshipIcon />
                   <p className="card-text">STARSHIP</p>
-                  <p>{card.starships.length}</p>
                 </div>
+                <p>{card.starships.length}</p>
               </div>
             </div>
           </Link>
