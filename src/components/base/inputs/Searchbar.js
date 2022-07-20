@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 //Icons
 import { ReactComponent as SearchIcon } from "../../../assets/search.svg";
 
-function Searchbar() {
+function Searchbar({style}) {
     return (
-        <div className="search-container">
+        <div style={style} className="search-container">
             <input className="input" type="text" placeholder="Search" />
-            <div className="image"> <SearchIcon/></div>
+            <div className="image">
+                <SearchIcon/>
+            </div>
         </div>
     );
 }

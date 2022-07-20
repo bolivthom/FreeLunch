@@ -71,7 +71,7 @@ function AllCardsTemplate() {
       case 'female':
         return <FemaleIcon />;
       default:
-        return 'n/a'
+        return ''
     }
   }
 

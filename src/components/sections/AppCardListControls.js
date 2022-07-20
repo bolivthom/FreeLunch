@@ -9,12 +9,17 @@ import Searchbar from "../base/inputs/Searchbar";
 import AppSecondaryButton from "../base/buttons/AppSecondayButton";
 import AppPrimaryButton from "../base/buttons/AppPrimaryButton";
 
+const styles = {
+    cardControls: {
+        marginRight: '6px'
+    }
+}
 function AppCardControls() {
     return (
         <div className="sub-nav">
-            <Searchbar />
-            <AppSecondaryButton Title={"A-Z"} BackgroundColor={"#FFFFFF"} />
-            <AppPrimaryButton Title={"Youngest"} BackgroundColor={"#E4E4E4"} />
+            <Searchbar style={styles.cardControls}/>
+            <AppSecondaryButton style={styles.cardControls} Title={"A-Z"} BackgroundColor={"#FFFFFF"} />
+            <AppPrimaryButton style={styles.cardControls} Title={"Youngest"} BackgroundColor={"#E4E4E4"} />
             <AppPrimaryButton Title={"Eldest"} BackgroundColor={"#E4E4E4"} />
         </div>
 
