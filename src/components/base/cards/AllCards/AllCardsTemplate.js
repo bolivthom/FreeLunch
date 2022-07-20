@@ -7,6 +7,7 @@ import GlobalContext from "../../../context/GlobalContext";
 import { Col, Row } from "react-bootstrap";
 import Popover from "@material-ui/core/Popover";
 import CardTemplate from '../Card/CardTemplate';
+import { filterByName } from '../../../helpers/utils';
 
 //Icons
 //import { ReactComponent as ArrowRightIcon } from "../../assets/arrowright.svg";
@@ -14,9 +15,13 @@ import CardTemplate from '../Card/CardTemplate';
 function AllCardsTemplate() {
   const [cards, setCards] = useState([]);
 
+const { searchTerm } = React.useContext(GlobalContext);
+
   useEffect(() => {
-    fetchCards().then((list) => setCards(list));
-  }, []);
+    fetchCards().then((list) => { 
+      setCards(filterByName(list, searchTerm))
+    });
+  }, [searchTerm]);
 
   return (
     <div className="grid card-grid">

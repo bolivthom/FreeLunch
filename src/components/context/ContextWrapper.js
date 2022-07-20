@@ -28,7 +28,8 @@ export default function ContextWrapper(props) {
         [],
         initDecks
     );
-    
+    const [searchTerm, setSearchTerm] = useState('');
+
     useEffect(() => {
         localStorage.setItem("decks", JSON.stringify(decks));
     }, [decks]);
@@ -42,7 +43,9 @@ export default function ContextWrapper(props) {
                 selectedDeck,
                 setSelectedDeck,
                 showDeckModal,
-                setShowDeckModal
+                setShowDeckModal,
+                searchTerm,
+                setSearchTerm,
             }}
         >
             {props.children}

@@ -7,26 +7,34 @@ import GlobalContext from "../../../context/GlobalContext";
 import { Col, Row } from "react-bootstrap";
 import Popover from "@material-ui/core/Popover";
 import CardTemplate from '../Card/CardTemplate';
+import { filterByName } from '../../../helpers/utils';
 
 //Icons
 //import { ReactComponent as ArrowRightIcon } from "../../assets/arrowright.svg";
 
 function CardsOfADeck() {
     const { id } = useParams();
-    const { decks } = React.useContext(GlobalContext);
-    const [deck, setDeck] = useState(null)
+    const { decks, searchTerm } = React.useContext(GlobalContext);
+    const [deck, setDeck] = useState(null);
+    const [items, setItems] = useState([])
 
     React.useEffect(() => {
         let tempDeck = decks.find((dec) => dec.id == id);
         if(tempDeck != deck) {
             setDeck(tempDeck);
+            setItems(filterByName(tempDeck.items, searchTerm));
         }
     }, [decks]);
+
+    React.useEffect(() => {
+        if(deck?.items || items.length > 0) setItems(filterByName(deck.items, searchTerm));
+    }, [searchTerm]);
+
     
-    console.log('DECKS', decks);
+    
     return (
         <div className="grid card-grid">
-            {(deck?.items ? deck.items : []).map((card, index) => (
+            {items.map((card, index) => (
                 <CardTemplate key={card.name} cardData={card} deckId={deck?.id} />
             ))}
         </div>

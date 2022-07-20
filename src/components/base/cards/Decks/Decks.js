@@ -7,16 +7,23 @@ import { ReactComponent as JediOrderSymbol } from '../../../../assets/jedi-symbo
 import { Link } from "react-router-dom";
 import DeckCardTemplate from '../Card/DeckCardTemplate'
 import GlobalContext from '../../../context/GlobalContext'
+import { filterByName } from '../../../helpers/utils';
 //Icons
 //import { ReactComponent as ArrowRightIcon } from "../../assets/arrowright.svg";
 
 function Decks() {
-    const { decks } = useContext(GlobalContext)
+    const { decks, searchTerm } = useContext(GlobalContext)
+    const [filteredDecks, setFilteredDecks] = useState(decks);
     const symbols = {
         rebel: <RebelAllianceSymbol />,
         empire: <GalaticEmpireSymbol />,
         jedi: <JediOrderSymbol />
     };
+
+
+    React.useEffect(() => {
+        setFilteredDecks(filterByName(decks, searchTerm))
+    }, [searchTerm]);
 
     return (
         <div className="grid card-grid">
@@ -26,7 +33,7 @@ function Decks() {
                 + button above.</p>
                 </>
             )}
-            {decks.map((deck, index)=> (
+            {filteredDecks.map((deck, index)=> (
                 <DeckCardTemplate key={index} deckData={deck} />
             ))}
         </div>
