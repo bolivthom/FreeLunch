@@ -66,19 +66,19 @@ function DeckCardTemplate({ deckData }) {
                 {deckData?.name}
               </h3>
             </div>
-            <div className="deck-card-content">
-              <Link  to={`/deck/${deckData.id}`}>
-                <div className="deck-card-number">
-                    {deckData.items?.length || 0}
-                    {/* <div className="card-icon-group-header">
-                        <p>{deck.items?.length || 0}</p>
-                    </div> */}
-                </div>
-                <div className="deck-card-subtitle">
-                    total cards
-                </div>
-              </Link>
-            </div>
+            <Link  to={`/deck/${deckData.id}`}>
+              <div className="deck-card-content">
+                  <div className="deck-card-number">
+                      {deckData.items?.length || 0}
+                      {/* <div className="card-icon-group-header">
+                          <p>{deck.items?.length || 0}</p>
+                      </div> */}
+                  </div>
+                  <div className="deck-card-subtitle">
+                      total cards
+                  </div>
+              </div>
+            </Link>
           </div>
     );
 }
