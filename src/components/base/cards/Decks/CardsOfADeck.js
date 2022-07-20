@@ -23,9 +23,10 @@ function CardsOfADeck() {
         }
     }, [decks]);
     
+    console.log('DECKS', decks);
     return (
         <div className="grid card-grid">
-            {deck?.items?.map((card, index) => (
+            {(deck?.items ? deck.items : []).map((card, index) => (
                 <CardTemplate key={card.name} cardData={card} deckId={deck?.id} />
             ))}
         </div>

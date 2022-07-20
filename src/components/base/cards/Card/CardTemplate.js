@@ -33,16 +33,16 @@ function CardTemplate({ cardData = null, summary = false, deckId = 0 }) {
       setCardDeck(tDeck);
     }, []);
 
-    const deckCards = useMemo(() => {
-      decks.map((deck) => deck?.items?.map((card) => ({...card, deck_id: deck.id})))
-      .flat(Infinity)
-    }, [decks])
+    // const deckCards = useMemo(() => {
+    //   decks.map((deck) => deck?.items?.map((card) => ({...card, deck_id: deck.id})))
+    //   .flat(Infinity)
+    // }, [decks])
 
     const [popOverState, setPopOverState] = React.useState({
       anchorEl: null,
       popOverId: null,
     })
-  
+
     function handleControlClick(evt, id) {
       const anchorEl = evt.target.closest('.card-control');
       console.log({anchorEl, id})
@@ -60,6 +60,21 @@ function CardTemplate({ cardData = null, summary = false, deckId = 0 }) {
     }
 
     // console.log({cardDeck})
+
+    const handleDeckDeletion = async () => {
+      let items = [...(cardDeck?.items || [])];
+      const cardJSON = JSON.stringify(card)
+      const filteredItems = items.filter((item) => JSON.stringify(item) !== cardJSON);
+      dispatchDecks({
+          type: 'update',
+          payload: {
+              ...cardDeck,
+              items: filteredItems
+          }
+      })
+      
+    }
+
     const handleDeckSelection = async (deck, card) => {
       let items = [...(deck?.items || [])];
       const cardJSON = JSON.stringify(card)
@@ -126,7 +141,7 @@ function CardTemplate({ cardData = null, summary = false, deckId = 0 }) {
                       BackgroundColor={"#FFFFFF"}
                       aria-describedby={`simple-popover-${id}`}
                       variant="contained"
-                      onClick={(evt) => handleControlClick(evt, id)} />
+                      onClick={(evt) => handleDeckDeletion(evt, id)} />
                   </>
                 )}
                 {summary && (

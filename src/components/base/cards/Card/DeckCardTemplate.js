@@ -19,17 +19,37 @@ import { ReactComponent as GalaticEmpireSymbol } from '../../../../assets/empire
 import { ReactComponent as JediOrderSymbol } from '../../../../assets/jedi-symbol.svg'
 
 function DeckCardTemplate({ deckData }) {
+
+    const { decks, dispatchDecks } = React.useContext(GlobalContext);
+
     const symbols = {
         rebel: <RebelAllianceSymbol />,
         empire: <GalaticEmpireSymbol />,
         jedi: <JediOrderSymbol />
     };
 
+    // console.log({cardDeck})
+    const handleDeckDelete = async () => {
+
+      let proceed = window.confirm('Are you sure you want to delete this deck?');
+      if(proceed) {
+        dispatchDecks({
+            type: 'delete',
+            payload: {
+                ...deckData
+            }
+        })
+        
+      }
+    }
+
     return (
         
-      <Link  to={`/deck/${deckData.id}`}>
           <div className="deck-card">
             <div className={`card-header deck-card-header card-${deckData.clan}`} style={{ position: "relative" }}>
+              <div className="deck-card-symbol">
+                  {symbols[deckData.clan]}
+              </div>
               <div className="card-pin">
                 <StackIcon />
               </div>
@@ -39,17 +59,15 @@ function DeckCardTemplate({ deckData }) {
                   BackgroundColor={'#00000099'}
                   aria-describedby={`simple-popover-${deckData.id}`}
                   variant="contained"
-                  onClick={(evt) => null} 
+                  onClick={handleDeckDelete} 
                   />
               </div>
               <h3 className="card-name" id="card_name">
                 {deckData?.name}
               </h3>
-              <div className="deck-card-symbol">
-                  {symbols[deckData.clan]}
-              </div>
             </div>
             <div className="deck-card-content">
+              <Link  to={`/deck/${deckData.id}`}>
                 <div className="deck-card-number">
                     {deckData.items?.length || 0}
                     {/* <div className="card-icon-group-header">
@@ -59,10 +77,9 @@ function DeckCardTemplate({ deckData }) {
                 <div className="deck-card-subtitle">
                     total cards
                 </div>
+              </Link>
             </div>
           </div>
-        </Link>
-        
     );
 }
 
