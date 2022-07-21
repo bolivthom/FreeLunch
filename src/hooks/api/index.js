@@ -22,11 +22,20 @@ export const processCards = async (response, fullFetch = false) => {
           vehicle_names: [],
           starship_names: [],
           complete: false,
+          age: calculateArbitraryAge(cardData),
     }
     card = fullFetch ? loadCardDetails(card) : card;
     return card;
   })).catch((err) => []);
 };
+
+const calculateArbitraryAge = (card) => {
+  const birth_year = (card.birth_year || '1BBY');
+  const [year, age] = birth_year.split(/(ABY|BBY)/)
+  const baseAge = 5000;
+  const relativeAge = age === 'BBY' ? baseAge + year : baseAge - year;
+  return parseFloat(relativeAge);
+}
 
 export const loadCardDetails = async (card) => {
   return {

@@ -7,7 +7,7 @@ import GlobalContext from "../../../context/GlobalContext";
 import { Col, Row } from "react-bootstrap";
 import Popover from "@material-ui/core/Popover";
 import CardTemplate from '../Card/CardTemplate';
-import { filterByName } from '../../../helpers/utils';
+import { filter } from '../../../helpers/utils';
 
 import { ReactComponent as StarshipIcon } from "../../../../assets/starship.svg";
 import { ReactComponent as VehicleIcon } from "../../../../assets/vehicle.svg";
@@ -20,13 +20,14 @@ import { ReactComponent as FemaleIcon } from "../../../../assets/female.svg";
 function AllCardsTemplate() {
   const [cards, setCards] = useState([]);
 
-const { searchTerm } = React.useContext(GlobalContext);
+const { searchTerm, sortBy } = React.useContext(GlobalContext);
 
   useEffect(() => {
+    console.log('sorting')
     fetchCards().then((list) => { 
-      setCards(filterByName(list, searchTerm))
+      setCards(filter(list, searchTerm, sortBy))
     });
-  }, [searchTerm]);
+  }, [searchTerm, sortBy]);
 
 
   function getGenderIcon(gender) {
@@ -79,6 +80,8 @@ const { searchTerm } = React.useContext(GlobalContext);
 
 }
 */
+
+  console.log('cards', cards);
 
   return (
     <div className="grid card-grid">

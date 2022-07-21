@@ -7,12 +7,12 @@ import { ReactComponent as JediOrderSymbol } from '../../../../assets/jedi-symbo
 import { Link } from "react-router-dom";
 import DeckCardTemplate from '../Card/DeckCardTemplate'
 import GlobalContext from '../../../context/GlobalContext'
-import { filterByName } from '../../../helpers/utils';
+import { filter } from '../../../helpers/utils';
 //Icons
 //import { ReactComponent as ArrowRightIcon } from "../../assets/arrowright.svg";
 
 function Decks() {
-    const { decks, searchTerm } = useContext(GlobalContext)
+    const { decks, searchTerm, sortBy } = useContext(GlobalContext)
     const [filteredDecks, setFilteredDecks] = useState(decks);
     const symbols = {
         rebel: <RebelAllianceSymbol />,
@@ -22,7 +22,7 @@ function Decks() {
 
 
     React.useEffect(() => {
-        setFilteredDecks(filterByName(decks, searchTerm))
+        setFilteredDecks(filter(decks, searchTerm, sortBy))
     }, [searchTerm]);
 
     return (

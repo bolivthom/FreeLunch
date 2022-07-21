@@ -7,14 +7,14 @@ import GlobalContext from "../../../context/GlobalContext";
 import { Col, Row } from "react-bootstrap";
 import Popover from "@material-ui/core/Popover";
 import CardTemplate from '../Card/CardTemplate';
-import { filterByName } from '../../../helpers/utils';
+import { filter } from '../../../helpers/utils';
 
 //Icons
 //import { ReactComponent as ArrowRightIcon } from "../../assets/arrowright.svg";
 
 function CardsOfADeck() {
     const { id } = useParams();
-    const { decks, searchTerm } = React.useContext(GlobalContext);
+    const { decks, searchTerm, sortBy } = React.useContext(GlobalContext);
     const [deck, setDeck] = useState(null);
     const [items, setItems] = useState([])
 
@@ -22,12 +22,12 @@ function CardsOfADeck() {
         let tempDeck = decks.find((dec) => dec.id == id);
         if(tempDeck != deck) {
             setDeck(tempDeck);
-            setItems(filterByName(tempDeck.items, searchTerm));
+            setItems(filter(tempDeck.items, searchTerm, sortBy));
         }
     }, [decks]);
 
     React.useEffect(() => {
-        if(deck?.items || items.length > 0) setItems(filterByName(deck.items, searchTerm));
+        if(deck?.items || items.length > 0) setItems(filter(deck.items, searchTerm, sortBy));
     }, [searchTerm]);
     
     return (

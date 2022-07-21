@@ -29,6 +29,7 @@ export default function ContextWrapper(props) {
         initDecks
     );
     const [searchTerm, setSearchTerm] = useState('');
+    const [sortBy, setSortBy] = useState('name_asc');
 
     useEffect(() => {
         localStorage.setItem("decks", JSON.stringify(decks));
@@ -46,6 +47,8 @@ export default function ContextWrapper(props) {
                 setShowDeckModal,
                 searchTerm,
                 setSearchTerm,
+                sortBy,
+                setSortBy,
             }}
         >
             {props.children}

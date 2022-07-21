@@ -164,7 +164,7 @@ function CardTemplate({ cardData = null, summary = false, deckId = 0 }) {
                         <Row >
                             <Col className='left' sm={6}>
                                 <p className='card-sex'>
-                                  <SexIcon /> <span >  19BBY</span>
+                                  <SexIcon /> <span >  {card?.birth_year}</span>
                                 </p>
                             </Col>
                             <Col className='right'  sm={6}>
