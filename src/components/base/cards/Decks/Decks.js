@@ -23,7 +23,7 @@ function Decks() {
 
     React.useEffect(() => {
         setFilteredDecks(filter(decks, searchTerm, sortBy))
-    }, [searchTerm]);
+    }, [searchTerm, decks]);
 
     return (
         <div className="grid card-grid">
