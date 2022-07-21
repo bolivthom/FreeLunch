@@ -9,6 +9,8 @@ const GlobalContext = React.createContext({
     setShowDeckModal: () => {},
     searchTerm: '',
     setSearchTerm: () => {},
+    sortBy: 'name_asc',
+    setSortBy: () => {},
 })
 
 export default GlobalContext;
