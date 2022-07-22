@@ -63,7 +63,7 @@ function AppHeader() {
                     <h6 id="header-title">SW-API Deck Builder</h6>
                 </div>
                 <div>
-                    <div><AppSecondaryButton Title={"Bavin Edwards"} BackgroundColor={"#EDEDED"} /></div>
+                    <div><AppSecondaryButton  style={{borderRadius: '4px', border: '1px solid #B8B8B8'}} Title={"Bavin Edwards"} BackgroundColor={"#EDEDED"} /></div>
                 </div>
             </div>
             <hr style={styles.navHr}></hr>
