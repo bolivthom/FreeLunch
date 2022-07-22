@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as SearchIcon } from "../../../assets/search.svg";
 import GlobalContext from "../../context/GlobalContext";
 
-function Searchbar() {
+function Searchbar({style}) {
     const { searchTerm, setSearchTerm } = React.useContext(GlobalContext);
 
     const updateSearch = (evt, value) => {
@@ -12,7 +12,7 @@ function Searchbar() {
     }
 
     return (
-        <div className="search-container">
+        <div style={style} className="search-container">
             <input className="input" type="text" placeholder="Search" onKeyUp={updateSearch} defaultValue={searchTerm}/>
             <div className="image"> <SearchIcon/></div>
         </div>

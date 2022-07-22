@@ -48,7 +48,7 @@ function AppDeckListControls() {
 
   return (
     <div className="deck-sub-nav">
-      <Searchbar />
+      <Searchbar style={{marginRight: '6px'}}/>
       
       <div ref={divRef}>
         <AppSecondaryButton

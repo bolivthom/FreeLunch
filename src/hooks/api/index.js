@@ -9,6 +9,7 @@
             }
         })
 )*/
+
 import Crypto from 'crypto-js';
 export const cardsUrl = 'https://swapi.dev/api/people/';
 

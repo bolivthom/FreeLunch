@@ -11,7 +11,6 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     margin-bottom: 24px;
   }
 
@@ -42,7 +41,6 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     margin-bottom: 24px;
   }
 
@@ -73,7 +71,6 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     margin-bottom: 24px;
   }
 
@@ -109,25 +106,10 @@
     width: 50%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 6px;
-
-    width: 584px;
-    height: 32px;
-
-    border-radius: 8px;
-
-    /* Inside auto layout */
-
+    /* Inside auto layout 
     flex: none;
     order: 1;
-    flex-grow: 0;
+    flex-grow: 0;*/
     margin-bottom: 24px;
   }
 
@@ -186,7 +168,6 @@
   min-width: 40px;
   border-radius: 4px;
   background: transparent;
-  /* #B8B8B8 */
   border: 1px solid transparent;
   box-sizing: border-box;
   box-shadow: none;
@@ -236,8 +217,6 @@
   flex-direction: row;
   width: 100%;
   position: relative;
-  padding: 0;
-  margin: 0;
 }
 
 .input {
