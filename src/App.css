@@ -16,7 +16,7 @@
   }
 
   .deck-sub-nav .search-container .image {
-    left: 95%;
+    left: 0%;
   }
   
   #header-title {
@@ -47,7 +47,7 @@
   }
 
   .deck-sub-nav .search-container .image {
-    left: 95%;
+    left: 0%;
   }
 
   #header-title {
@@ -78,7 +78,7 @@
   }
 
   .deck-sub-nav .search-container .image {
-    left: 95%;
+    left: 0%;
   }
 
   #header-title {    
@@ -147,7 +147,7 @@
   }
 
   .deck-sub-nav .search-container .image {
-    left: 95%;
+    left: 0%;
   }
 
   #header-title {    
@@ -242,7 +242,7 @@
 
 .input {
   width: 100%;
-  height: 32px;
+  height: 30px;
   background: #FFFFFF;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -257,7 +257,7 @@
 
 .image {
   position: relative;
-  height:34px;
+  height:32px;
   width: 32px;
   display: flex;
   background-color: white;
